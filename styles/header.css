@@ -1,0 +1,48 @@
+
+header.top {
+    max-width: 1280px;
+    width: 100%;
+    padding: 12px 32px;
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    img {
+        width: 32px;
+        height: 32px;
+
+        transition: transform .5s ease;
+    }
+
+    img[src*="logo"]:hover {
+        transform: rotate(90deg);
+    }
+
+    img[src*="shopping"]:hover {
+        transform: rotate(-30deg);
+    }
+
+    a {
+        position: relative;
+    }
+
+    a > span {
+        font-family: "inter", sans-serif;
+        font-size: 12px;
+        position: absolute;
+        top: -8px;
+        right: -8px;
+
+        background-color: var(--snitap-sun);
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

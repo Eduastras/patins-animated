@@ -1,0 +1,126 @@
+
+section.gallery {
+    width: 100%;
+    max-width: 1280px;
+    padding: 40px 32px;
+
+    margin-inline: auto;
+
+    header {
+        text-align: center;
+    }
+    
+    header span {
+        font-family: var(--ff-base);
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    div.content {
+        margin-top: 32px;
+        display: grid;
+        grid-template-areas: 
+        "A B B"
+        "C C D";
+        grid-template-rows: auto auto;
+        grid-template-columns: auto auto auto;
+
+        gap: 40px;        
+    }
+
+    figure {
+        /* border: 2px solid deeppink; */
+        position: relative;
+        border-radius: 40px;
+        overflow: hidden;
+        line-height: 0;
+
+        /* animation: [name] [duration] [timing-function] [delay] [iteration-count] [direction] [fill-mode] [play-state] [timeline]; */
+
+        animation: image-appear ease both;
+        animation-timeline: view();
+        animation-range: 100px 300px;
+
+        & > img {
+            height: 400px;
+            object-fit: cover;
+            transition: scale 500ms;
+
+        }
+
+        &[data-delay] {
+            animation-range: 150px 350px;
+        }
+
+        &:hover {
+            & > img {
+                scale: 1.1;
+            }
+
+            figcaption {
+                transform: translateY(0);
+            }
+        }
+
+        &:nth-child(1) {
+            grid-area: A;
+        }
+
+        &:nth-child(2) {
+            grid-area: B;
+        }
+
+        &:nth-child(3) {
+            grid-area: C;
+        }
+
+        &:nth-child(4) {
+            grid-area: D;
+        }  
+    }
+
+    figcaption {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 8px;
+
+        font-family: var(--text-sm);
+        font-size: var(--ff-base);
+        color: white;
+
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        padding: 24px 32px;
+
+        transform: translateY(100%);
+        transition: transform 500ms;
+
+        background: linear-gradient(
+            to top,
+            rgb(0 0 0 / 0.64),
+            rgb(0 0 0 / 0)
+        );
+
+        & > img {
+            width: 32px;   
+            aspect-ratio: 1/1;
+            object-fit: cover;     
+            border-radius: 50%;
+        }
+    }    
+}   
+
+@keyframes image-appear {
+    from {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+}
+
+    

@@ -1,0 +1,46 @@
+
+section.banner {
+    width: 100%;
+    /* border: solid deeppink; */
+    padding-block: 45px;
+    overflow: hidden;
+
+    div.scroller {
+        width: 100%;
+        /* border: solid; */
+        overflow: hidden;
+        padding-block: 16px;
+    }
+
+    div.rolling {
+        display: flex;
+        gap: 24px;
+        /* animation: [name] [duration] [timing-function] [delay] [iteration-count] [direction] [fill-mode] [play-state] [timeline]; */
+
+        animation: rolling 2s linear infinite;
+    }
+
+    .bg-gradient-animate {
+        background: linear-gradient(
+            45deg, 
+            var(--snitap-sky-light), 
+            var(--snitap-joy-light)
+            );
+        background-size: 400%;
+        background-position: 0 50%;
+        animation: bg-gradient 20s ease infinite;
+    }
+}
+
+
+@keyframes bg-gradient {
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+@keyframes rolling {
+    to {
+        transform: translateX(-132px);
+    }
+}

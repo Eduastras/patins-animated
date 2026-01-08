@@ -1,0 +1,245 @@
+section.hero {
+    max-width: 1280px;
+    width: 100%;
+    padding: 40px 32px;
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+
+
+    h1 {
+        max-width: 600px;
+    }
+
+    h1 > div {
+        display: inline-block;
+        /* border: 2px lime solid; */
+        overflow: hidden;
+        height: 80px;
+        width: min-content;
+        /* serve para alinhar os elementos inline verticalmente, mas para isso eles precisam estar na mesma linha */
+        vertical-align: bottom;
+    }
+
+    h1 span:nth-child(1), h1 span:nth-child(4) {
+        color: var(--snitap-sky-mid);
+    }
+    h1 span:nth-child(2) {
+        color: var(--snitap-joy-mid);
+    }
+    h1 span:nth-child(3) {
+        color: var(--snitap-leaf-mid);
+    }
+
+    h1 span {
+        display: block;
+        /* border: 1px solid red; */
+
+        animation-name: slideUp;
+        animation-duration: 6s;
+        animation-delay: 2s;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease;
+    }
+
+    /* buttons */
+    div.buttons {
+        display: flex;
+        gap: 32px;
+        margin-top: 48px;
+
+        a.button {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            
+            border-radius: 80px;
+
+            transition: scale 350ms ease;
+
+            /* elemento que possue a class = button buy */
+            &.buy{
+                padding: 24px 48px;
+                background-color: var(--snitap-sun);
+            }
+
+            /* elemento que possue a class = button play */
+            &.play span {
+                padding: 24px;
+                border-radius: 50%;
+                background-color: white;
+                display: flex;
+            }
+
+            &:hover {
+                scale: 1.1;
+            }
+        }
+
+    .shadow {
+        box-shadow: 
+        0 2px 5px rgb(0 0 0 / .1),
+        0 9px 9px  rgb(0 0 0 / .09),
+        0 20px 12px  rgb(0 0 0 / .05),
+        0 36px 15px  rgb(0 0 0 / .01);
+    }
+
+    }
+    
+    /* patins */
+    & > div:nth-child(2) {
+        display: block;
+        width: 100%;
+        max-width: 488px;
+        height: 488px;
+        /* border: 2px deeppink solid; */
+
+        .content {
+            /* border: 2px black solid; */
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        img {
+            position: absolute;
+            width: 100%;
+        }
+
+        img[src*="ellipse"] {
+            width: 94%;
+            top: 3%;
+            left: 3%;
+
+            transform: translateX(200%);
+            animation-name: slideIn;
+            animation-duration: 3s;
+            animation-delay: 200ms;
+            animation-timing-function: ease;
+            animation-fill-mode: forwards;
+        }
+
+        img[src*="patins"] {
+            /* serve para colocar a posição do patins em primeiro, ou seja por cima das outras imagens (por padrão todos os elementos tem z-index = 0) */
+            z-index: 1;  
+            transform: translateX(200%);
+            animation-name: slideIn;         
+            animation-duration: 3s;
+            animation-timing-function: ease;
+            animation-fill-mode: forwards;
+        }
+
+        img[src*="stars-1"] {
+            width: 100%;
+            max-width: 88px;
+            top: 30%;
+            z-index: 0;
+
+            opacity: 0;
+            transform: translateX(400%);
+            animation-name: slideIn, appear;
+            animation-duration: 2s, 100ms;
+            animation-delay: 800ms, 800ms;
+            animation-timing-function: ease;
+            animation-fill-mode: both, both;
+        }
+
+        img[src*="stars-2"] {
+            max-width: 40px;
+            right: 0;
+            bottom: 35%;
+            
+            transform: translateX(400%);
+            animation: slideIn 2.2s 800ms ease forwards;
+        }
+    }
+}
+
+@keyframes appear {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    50% {
+        transform: translateX(-20px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideUp {
+
+    /* radical estático */
+    0%, 22% {
+        transform: translateY(0);
+    }
+    /* divertida in */
+    23% {
+        transform: translateY(calc(-80px - 15px));
+    }
+
+    25% {
+        transform: translateY(calc(-80px + 10px));
+    }
+
+    27% {
+        transform: translateY(calc(-80px - 5px));
+    }
+
+    29% {
+        transform: translateY(calc(-80px + 5px));
+    }
+    /* divertida estática */
+    33%, 55% {
+        transform: translateY(-80px);
+    }
+
+    /* saudável in */
+    56% {
+        transform: translateY(calc(-160px - 15px));
+    }
+
+    58% {
+        transform: translateY(calc(-160px + 10px));
+    }
+
+    60% {
+        transform: translateY(calc(-160px - 5px));
+    }
+
+    62% {
+        transform: translateY(calc(-160px + 5px));
+    }    
+    /* saudável estatico */    
+    66%, 88% {
+        transform: translateY(-160px);
+    }
+
+    /* radical in */
+    89% {
+        transform: translateY(calc(-240px - 15px));
+    }
+
+    91% {
+        transform: translateY(calc(-240px + 10px));
+    }
+
+    93% {
+        transform: translateY(calc(-240px - 5px));
+    }
+
+    95% {
+        transform: translateY(calc(-240px + 5px));
+    } 
+    /* radical estático  */
+    100% {
+        transform: translateY(-240px);
+    }
+}
